@@ -1,0 +1,16 @@
+.App {
+  .main-logo {
+    position: relative;
+    width: 320px;
+    img {
+      width: 80px;
+    }
+    .movie-app-text {
+      position: absolute;
+      top: 10%;
+      right: 0;
+      font-size: 3rem;
+      font-weight: bold;
+    }
+  }
+}
