@@ -1,16 +1,27 @@
+$backgroundColor: #1b1b1b;
+
+html * {
+  box-sizing: border-box;
+  background: $backgroundColor;
+}
+
 .App {
   .main-logo {
     position: relative;
-    width: 320px;
+    padding: 20px 0;
+    width: 100%;
+    background: white;
     img {
       width: 80px;
+      margin: 0 20px;
     }
     .movie-app-text {
       position: absolute;
-      top: 10%;
-      right: 0;
+      top: 25%;
+      left: 7%;
       font-size: 3rem;
       font-weight: bold;
+      background: white;
     }
   }
 }
