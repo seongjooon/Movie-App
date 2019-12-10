@@ -9,11 +9,17 @@ class App extends Component {
   }
 
   render() {
+    const { movieList } = this.props;
+
     return (
       <div className="App">
         <Switch>
           <Route exact path="/" render={() => <Redirect to="/main" />} />
-          <Route exact path="/main" render={() => <Main />} />
+          <Route
+            exact
+            path="/main"
+            render={() => <Main movieList={movieList} />}
+          />
         </Switch>
       </div>
     );

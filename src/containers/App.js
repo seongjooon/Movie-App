@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import App from '../components/App';
-import { getMoviesApi } from '../api';
-import { getMovieListAction } from '../actions';
+import { getMoviesApi, getMoviesGenreApi } from '../api';
+import { getMovieListAction, getMovieGenreAction } from '../actions';
 
 const mapStateToProps = state => ({
-  movieList: state.movieList
+  movieList: state.movieList,
+  genreList: state.genreList
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -12,6 +13,11 @@ const mapDispatchToProps = dispatch => ({
     await getMoviesApi()
       .then(res => {
         dispatch(getMovieListAction(res.results));
+      })
+      .catch(err => console.log(err));
+    await getMoviesGenreApi()
+      .then(res => {
+        dispatch(getMovieGenreAction(res.genres));
       })
       .catch(err => console.log(err));
   }
