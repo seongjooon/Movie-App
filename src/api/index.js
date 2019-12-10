@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { MOVIE_DB_URL, MOVIE_GENRE_URL } from '../constants/constant';
+import { API_KEY, MOVIE_DB_URL, MOVIE_GENRE_URL } from '../constants/constant';
 
 export const getMoviesApi = () => {
   return axios
@@ -11,6 +11,13 @@ export const getMoviesApi = () => {
 export const getMoviesGenreApi = () => {
   return axios
     .get(MOVIE_GENRE_URL)
+    .then(res => res.data)
+    .catch(err => console.log(err));
+};
+
+export const getMovieDetailApi = movie_id => {
+  return axios
+    .get(`/movie/${movie_id}?api_key=${API_KEY}&language=en-US`)
     .then(res => res.data)
     .catch(err => console.log(err));
 };
