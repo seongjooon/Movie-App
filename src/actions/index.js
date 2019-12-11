@@ -1,7 +1,8 @@
 import {
   GET_MOVIES,
   GET_MOVIES_GENRE,
-  GET_MOVIE_DETAIL
+  GET_MOVIE_DETAIL,
+  GET_MOVIE_ACTOR
 } from '../constants/actionTypes';
 
 export const getMovieListAction = data => ({
@@ -16,5 +17,10 @@ export const getMovieGenreAction = data => ({
 
 export const getMovieDetailAction = data => ({
   type: GET_MOVIE_DETAIL,
+  data
+});
+
+export const getMovieActorAction = data => ({
+  type: GET_MOVIE_ACTOR,
   data
 });

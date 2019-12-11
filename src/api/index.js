@@ -21,3 +21,10 @@ export const getMovieDetailApi = movie_id => {
     .then(res => res.data)
     .catch(err => console.log(err));
 };
+
+export const getMovieActorApi = movie_id => {
+  return axios
+    .get(`/movie/${movie_id}/credits?api_key=${API_KEY}`)
+    .then(res => res.data.cast)
+    .catch(err => console.log(err));
+};

@@ -1,15 +1,23 @@
 import { connect } from 'react-redux';
 import App from '../components/App';
-import { getMoviesApi, getMoviesGenreApi, getMovieDetailApi } from '../api';
+import {
+  getMoviesApi,
+  getMoviesGenreApi,
+  getMovieDetailApi,
+  getMovieActorApi
+} from '../api';
 import {
   getMovieListAction,
   getMovieGenreAction,
-  getMovieDetailAction
+  getMovieDetailAction,
+  getMovieActorAction
 } from '../actions';
 
 const mapStateToProps = state => ({
   movieList: state.movieList,
-  genreList: state.genreList
+  genreList: state.genreList,
+  movieDetail: state.movieDetail,
+  movieActorList: state.movieActorList
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -29,6 +37,11 @@ const mapDispatchToProps = dispatch => ({
     await getMovieDetailApi(movie_id)
       .then(res => {
         dispatch(getMovieDetailAction(res));
+      })
+      .catch(err => console.log(err));
+    await getMovieActorApi(movie_id)
+      .then(res => {
+        dispatch(getMovieActorAction(res));
       })
       .catch(err => console.log(err));
   }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.scss';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Main from './Main/Main';
+import Detail from './Detail/Detail';
 import Logo from '../image/movie-app-logo.png';
 
 class App extends Component {
@@ -10,14 +11,14 @@ class App extends Component {
   }
 
   render() {
-    const { movieList, genreList } = this.props;
+    const { movieList, genreList, getMovieDetail } = this.props;
 
     return (
       <div className="App">
         <header>
           <div className="main-logo">
             <img src={Logo} alt="movie-app-logo" />
-            <div className='movie-app-text'>Movie App</div>
+            <div className="movie-app-text">Movie App</div>
           </div>
         </header>
         <Switch>
@@ -26,6 +27,16 @@ class App extends Component {
             exact
             path="/main"
             render={() => <Main movieList={movieList} genreList={genreList} />}
+          />
+          <Route
+            path="/movie/:movie_id"
+            render={props => (
+              <Detail
+                {...props}
+                getMovieDetail={getMovieDetail}
+                genreList={genreList}
+              />
+            )}
           />
         </Switch>
       </div>
