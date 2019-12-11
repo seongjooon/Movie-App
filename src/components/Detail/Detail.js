@@ -1,14 +1,90 @@
 import React, { Component } from 'react';
+import './Detail.scss';
+import { MOVIE_IMAGE_URL } from '../../constants/constant';
+import Rating from 'react-rating';
+import Noimage from '../../image/Noimage.png';
+import Adult from '../../image/adult-icon.png';
+import Star from '../../image/rating_star.png';
+import EmptyStar from '../../image/rating_empty_star.png';
 
 class Detail extends Component {
   componentDidMount() {
-    const { getMovieDetail, match } = this.props;
-    const movieDetailUrl = match.params.movie_id;
-    getMovieDetail(movieDetailUrl);
+    const { match, getMovieDetail } = this.props;
+    const movieId = match.params.movie_id;
+
+    getMovieDetail(movieId);
   }
 
   render() {
-    return <div></div>;
+    const { movieDetail, genreList, movieActorList } = this.props;
+
+    return (
+      <div className="Detail">
+        <div className="movie-element">
+          {movieDetail.poster_path ? (
+            <img
+              className="poster"
+              src={MOVIE_IMAGE_URL + movieDetail.poster_path}
+              alt={movieDetail.title}
+            />
+          ) : (
+            <img src={Noimage} alt="Noimage" />
+          )}
+          <div className="movie-detail-description">
+            <div className="movie-detail-title-wrapper">
+              <div className="movie-detail-title">{movieDetail.title}</div>
+              <div className="movie-detail-date">
+                ({String(movieDetail.release_date).slice(0, 4)})
+              </div>
+              <div className="movie-detail-adult">
+                {movieDetail.adult && <img src={Adult} alt="Adult" />}
+              </div>
+            </div>
+            <Rating
+              className="movie-detail-rating"
+              readonly
+              initialRating={movieDetail.vote_average / 2}
+              emptySymbol={<img src={EmptyStar} className="icon" alt="icon" />}
+              fullSymbol={<img src={Star} className="icon" alt="icon" />}
+            />
+            <div>
+              {genreList.map((genre, index) => (
+                <div className="movie-detail-genre-list" key={index}>
+                  {movieDetail.genres.map((movieGenre, idx) => (
+                    <div key={idx}>
+                      {genre.id === movieGenre && (
+                        <div className="movie-detail-genre">{genre.name}</div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+            <div className="movie-detail-overview-title">Overview</div>
+            <p className="movie-detail-overview">{movieDetail.overview}</p>
+          </div>
+          <div className="cast-title"> Top Billed Cast</div>
+          <div className="actor-list-wrapper">
+            <div className="cast-list">
+              {movieActorList.map(actor => (
+                <div className="actor-data" key={actor.credit_id}>
+                  {actor.profile_path ? (
+                    <img
+                      src={MOVIE_IMAGE_URL + actor.profile_path}
+                      alt={actor.title}
+                    />
+                  ) : (
+                    <img src={Noimage} alt="Noimage" />
+                  )}
+                  <div className="actor-name">{actor.name}</div>
+                  <div className="actor-character">{actor.character}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 }
 
