@@ -28,7 +28,7 @@ class Detail extends Component {
               alt={movieDetail.title}
             />
           ) : (
-            <img src={Noimage} alt="Noimage" />
+            <img className="poster" src={Noimage} alt="Noimage" />
           )}
           <div className="movie-detail-description">
             <div className="movie-detail-title-wrapper">
@@ -47,7 +47,7 @@ class Detail extends Component {
               emptySymbol={<img src={EmptyStar} className="icon" alt="icon" />}
               fullSymbol={<img src={Star} className="icon" alt="icon" />}
             />
-            <div>
+            {/* <div>
               {genreList.map((genre, index) => (
                 <div className="movie-detail-genre-list" key={index}>
                   {movieDetail.genres.map((movieGenre, idx) => (
@@ -59,7 +59,7 @@ class Detail extends Component {
                   ))}
                 </div>
               ))}
-            </div>
+            </div> */}
             <div className="movie-detail-overview-title">Overview</div>
             <p className="movie-detail-overview">{movieDetail.overview}</p>
           </div>

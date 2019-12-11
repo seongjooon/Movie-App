@@ -21,25 +21,25 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onLoad: async () => {
-    await getMoviesApi()
+  onLoad: pageNmber => {
+    getMoviesApi(pageNmber)
       .then(res => {
         dispatch(getMovieListAction(res.results));
       })
       .catch(err => console.log(err));
-    await getMoviesGenreApi()
+    getMoviesGenreApi()
       .then(res => {
         dispatch(getMovieGenreAction(res.genres));
       })
       .catch(err => console.log(err));
   },
-  getMovieDetail: async movie_id => {
-    await getMovieDetailApi(movie_id)
+  getMovieDetail: movie_id => {
+    getMovieDetailApi(movie_id)
       .then(res => {
         dispatch(getMovieDetailAction(res));
       })
       .catch(err => console.log(err));
-    await getMovieActorApi(movie_id)
+    getMovieActorApi(movie_id)
       .then(res => {
         dispatch(getMovieActorAction(res));
       })

@@ -16,7 +16,7 @@ const initialState = {
 const getMoviesReducer = (state = initialState.movieList, action) => {
   switch (action.type) {
     case GET_MOVIES:
-      return action.data;
+      return [...state, ...action.data];
     default:
       return state;
   }

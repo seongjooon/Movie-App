@@ -6,17 +6,16 @@ import Detail from './Detail/Detail';
 import Logo from '../image/main-logo.png';
 
 class App extends Component {
-  componentDidMount() {
-    this.props.onLoad();
-  }
-
   render() {
     const {
+      onLoad,
       movieList,
       genreList,
       getMovieDetail,
       movieDetail,
-      movieActorList
+      movieActorList,
+      pageNumber,
+      getNextPage
     } = this.props;
 
     return (
@@ -31,7 +30,15 @@ class App extends Component {
           <Route
             exact
             path="/main"
-            render={() => <Main movieList={movieList} genreList={genreList} />}
+            render={() => (
+              <Main
+                onLoad={onLoad}
+                movieList={movieList}
+                genreList={genreList}
+                pageNumber={pageNumber}
+                getNextPage={getNextPage}
+              />
+            )}
           />
           <Route
             path="/movie/:movie_id"
