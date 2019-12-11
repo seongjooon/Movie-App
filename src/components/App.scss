@@ -6,13 +6,15 @@ html * {
 }
 
 .App {
-  .main-logo {
-    position: relative;
+  header {
+    display: inline-block;
     width: 100%;
     background: white;
-    img {
-      width: 300px;
-      margin: 0 20px;
+    .main-logo {
+      background: white;
+      img {
+        width: 300px;
+      }
     }
   }
 }

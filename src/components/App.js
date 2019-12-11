@@ -22,9 +22,9 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <div className="main-logo">
+          <Link to="/main" className="main-logo">
             <img src={Logo} alt="movie-app-logo" />
-          </div>
+          </Link>
         </header>
         <Switch>
           <Route exact path="/" render={() => <Redirect to="/main" />} />
