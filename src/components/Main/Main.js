@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import { MOVIE_IMAGE_URL } from '../../constants/constant';
 import Noimage from '../../image/Noimage.png';
 import debounce from 'lodash/debounce';
+import Rating from 'react-rating';
+import Star from '../../image/rating_star.png';
+import EmptyStar from '../../image/rating_empty_star.png';
+import Adult from '../../image/adult-icon.png';
 
 class Main extends Component {
   constructor(props) {
@@ -67,8 +71,23 @@ class Main extends Component {
             )}
             <div className="movie-description">
               <div className="movie-title">{movie.title}</div>
-              <div className="movie-rating">{movie.vote_average}</div>
-              <div className="movie-date">{movie.release_date}</div>
+              <div className="movie-element-wrapper">
+                <Rating
+                  className="movie-rating"
+                  readonly
+                  initialRating={movie.vote_average / 2}
+                  emptySymbol={
+                    <img src={EmptyStar} className="icon" alt="icon" />
+                  }
+                  fullSymbol={<img src={Star} className="icon" alt="icon" />}
+                />
+                <div className="movie-adult">
+                  {movie.adult && <img src={Adult} alt="Adult" />}
+                </div>
+                <div className="movie-date">
+                  ({String(movie.release_date).slice(0, 4)})
+                </div>
+              </div>
               <div className="movie-genre-list">
                 {genreList.map((genre, index) => (
                   <div className="movie-genre-wrapper" key={index}>
