@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_KEY, MOVIE_GENRE_URL } from '../constants/constant';
+import { MOVIE_GENRE_URL } from '../constants/constant';
 
 const today = new Date();
 const year = String(today.getFullYear());
@@ -16,7 +16,7 @@ if (day.length < 2) {
 export const getMoviesApi = async pageNmber => {
   return await axios
     .get(
-      `/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=release_date.desc&include_adult=false&include_video=false&page=${pageNmber}&release_date.lte=${year}-${month}-${day}`
+      `/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=release_date.desc&include_adult=false&include_video=false&page=${pageNmber}&release_date.lte=${year}-${month}-${day}`
     )
     .then(res => res.data)
     .catch(err => console.log(err));
@@ -31,14 +31,16 @@ export const getMoviesGenreApi = async () => {
 
 export const getMovieDetailApi = async movie_id => {
   return await axios
-    .get(`/movie/${movie_id}?api_key=${API_KEY}&language=en-US`)
+    .get(
+      `/movie/${movie_id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+    )
     .then(res => res.data)
     .catch(err => console.log(err));
 };
 
 export const getMovieActorApi = async movie_id => {
   return await axios
-    .get(`/movie/${movie_id}/credits?api_key=${API_KEY}`)
+    .get(`/movie/${movie_id}/credits?api_key=${process.env.REACT_APP_API_KEY}`)
     .then(res => res.data.cast)
     .catch(err => console.log(err));
 };
