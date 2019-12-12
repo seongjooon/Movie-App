@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Detail /> matches snapshot 1`] = `
+<div
+  className="Detail"
+>
+  <div
+    className="movie-element"
+  >
+    <img
+      alt="Life of vaco"
+      className="poster"
+      src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/asdfoo3.jpg"
+    />
+    <div
+      className="movie-detail-description"
+    >
+      <div
+        className="movie-detail-title-wrapper"
+      >
+        <div
+          className="movie-detail-title"
+        >
+          Life of vaco
+        </div>
+        <div
+          className="movie-detail-date"
+        >
+          (
+          1996
+          )
+        </div>
+        <div
+          className="movie-detail-adult"
+        />
+      </div>
+      <RatingAPILayer
+        className="movie-detail-rating"
+        direction="ltr"
+        emptySymbol={
+          <img
+            alt="icon"
+            className="icon"
+            src="rating_empty_star.png"
+          />
+        }
+        fractions={1}
+        fullSymbol={
+          <img
+            alt="icon"
+            className="icon"
+            src="rating_star.png"
+          />
+        }
+        initialRating={2}
+        onChange={[Function]}
+        onClick={[Function]}
+        onHover={[Function]}
+        placeholderSymbol={
+          Object {
+            "backgroundColor": "red",
+            "border": "5px double white",
+            "borderRadius": "50%",
+            "display": "inline-block",
+            "height": 30,
+            "width": 30,
+          }
+        }
+        quiet={false}
+        readonly={true}
+        start={0}
+        step={1}
+        stop={5}
+      />
+      <div
+        className="movie-detail-overview-title"
+      >
+        Overview
+      </div>
+      <p
+        className="movie-detail-overview"
+      >
+        askdfja2qbnelvpaoisfkw
+      </p>
+    </div>
+    <div
+      className="cast-title"
+    >
+       Top Billed Cast
+    </div>
+    <div
+      className="actor-list-wrapper"
+    >
+      <div
+        className="cast-list"
+      >
+        <div
+          className="actor-data"
+          key="5aa327c20e0a26075700097b"
+        >
+          <img
+            alt="Noimage"
+            src="Noimage.png"
+          />
+          <div
+            className="actor-name"
+          >
+            Felipe Camargo
+          </div>
+          <div
+            className="actor-character"
+          >
+            Augusto
+          </div>
+        </div>
+        <div
+          className="actor-data"
+          key="5aa327b2925141278d000773"
+        >
+          <img
+            alt="Noimage"
+            src="Noimage.png"
+          />
+          <div
+            className="actor-name"
+          >
+            Carol Castro
+          </div>
+          <div
+            className="actor-character"
+          >
+            Tereza
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
