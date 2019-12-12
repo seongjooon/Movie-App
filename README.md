@@ -1,4 +1,4 @@
-# Movie App
+> # Blended FrontEnd Test
 
 ![main-logo](main-logo.png)
 
@@ -20,7 +20,6 @@
 
 - Detail page
   ![simulation-screenshot](<movie-app-simulation(detail-page).gif>)
-
 
 > ### Installation
 
