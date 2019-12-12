@@ -16,9 +16,11 @@ $ratingColor: gold;
       display: inline-block;
       padding-left: 10px;
       .movie-title {
+        width: 400px;
         padding-bottom: 50px;
         font-size: 1.5rem;
         font-weight: bold;
+        overflow: hidden;
       }
       .movie-rating {
         display: inline-block;
