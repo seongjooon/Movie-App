@@ -15,6 +15,13 @@
 
 최신 개봉된 영화를 한 눈에 볼 수 있는 웹 어플리케이션.
 
+- Infinite scroll feature
+  ![simulation-screenshot](<movie-app-simulation(infinite-scroll).gif>)
+
+- Detail page
+  ![simulation-screenshot](<movie-app-simulation(detail-page).gif>)
+
+
 > ### Installation
 
 #### - Client
@@ -34,19 +41,13 @@ yarn start
 .env
 REACT_APP_API_KEY=844dba0bfd8f3a4f3799f6130ef9e335
 ```
- 
+
 > ### Features
 
 - 최신 영화를 모두 한 페이지에서 볼 수 있습니다.
 - 아래로 스크롤하면 개봉일에 따라 다른 영화를 볼 수 있습니다.
 - 영화를 클릭해서 상세 페이지로 이동할 수 있습니다.
 - 각 영화의 상세 페이지에서 평점, 배우 등과 같은 정보를 확인할 수 있습니다.
-
-- Infinite scroll feature
-  ![simulation-screenshot](<movie-app-simulation(infinite-scroll).gif>)
-
-- Detail page
-  ![simulation-screenshot](<movie-app-simulation(detail-page).gif>)
 
 > ### Approach
 
