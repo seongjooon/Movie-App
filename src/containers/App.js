@@ -26,7 +26,7 @@ const mapDispatchToProps = dispatch => ({
         getMoviesGenreApi()
           .then(res => {
             const genreList = res.genres;
-            movieList.map(movie => {
+            movieList.forEach(movie => {
               const genreNameList = movie.genre_ids.map(genre => {
                 for (let i = 0; i < genreList.length; i++) {
                   if (genre === genreList[i].id) {
