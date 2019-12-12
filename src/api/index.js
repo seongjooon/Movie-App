@@ -13,35 +13,6 @@ if (day.length < 2) {
   day = `0${day}`;
 }
 
-// export const getMoviesApi = async pageNmber => {
-//   return  axios
-//     .get(
-//       `/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=release_date.desc&include_adult=false&include_video=false&page=${pageNmber}&release_date.lte=${year}-${month}-${day}`
-//     )
-//     .then(res => {
-//       let temp;
-//       const movieList = res.data.results;
-//       getMoviesGenreApi()
-//         .then(res => {
-//           const genreList = res.genres;
-//           temp = movieList.map(movie => {
-//             const genreNameList = genreList.map(genre => {
-//               for (let i = 0; i < movie.genre_ids.length; i++) {
-//                 if (genre.id === movie.genre_ids[i]) {
-//                   return genre.name;
-//                 }
-//               }
-//             });
-//             movie.genreNames = genreNameList;
-//           });
-//         })
-//         .catch(err => console.log(err));
-
-//       return temp;
-//     })
-//     .catch(err => console.log(err));
-// };
-
 export const getMoviesApi = pageNmber => {
   return axios
     .get(
@@ -51,12 +22,6 @@ export const getMoviesApi = pageNmber => {
     .catch(err => console.log(err));
 };
 
-// const getMoviesGenreApi = async () => {
-//   return await axios
-//     .get(MOVIE_GENRE_URL)
-//     .then(res => res.data)
-//     .catch(err => console.log(err));
-// };
 export const getMoviesGenreApi = () => {
   return axios
     .get(MOVIE_GENRE_URL)
