@@ -6,44 +6,44 @@ import {
   GET_MOVIE_ACTOR
 } from '../constants/actionTypes';
 
-const initialState = {
+export const initialState = {
   movieList: [],
   genreList: [],
   movieDetail: {},
   movieActorList: []
 };
 
-const getMoviesReducer = (state = initialState.movieList, action) => {
+export const getMoviesReducer = (state = initialState.movieList, action) => {
   switch (action.type) {
     case GET_MOVIES:
-      return [...state, ...action.data];
+      return [...state, ...action.movieList];
     default:
       return state;
   }
 };
 
-const getMovieGenreReducer = (state = initialState.genreList, action) => {
+export const getMovieGenreReducer = (state = initialState.genreList, action) => {
   switch (action.type) {
     case GET_MOVIES_GENRE:
-      return action.data;
+      return action.genreList;
     default:
       return state;
   }
 };
 
-const getMovieDetailReducer = (state = initialState.movieDetail, action) => {
+export const getMovieDetailReducer = (state = initialState.movieDetail, action) => {
   switch (action.type) {
     case GET_MOVIE_DETAIL:
-      return action.data;
+      return action.movieDetail;
     default:
       return state;
   }
 };
 
-const getMovieActorReducer = (state = initialState.movieActorList, action) => {
+export const getMovieActorReducer = (state = initialState.movieActorList, action) => {
   switch (action.type) {
     case GET_MOVIE_ACTOR:
-      return action.data;
+      return action.actorList;
     default:
       return state;
   }
