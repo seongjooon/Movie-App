@@ -8,14 +8,12 @@ import {
 } from '../api';
 import {
   getMovieListAction,
-  getMovieGenreAction,
   getMovieDetailAction,
   getMovieActorAction
 } from '../actions';
 
 const mapStateToProps = state => ({
   movieList: state.movieList,
-  genreList: state.genreList,
   movieDetail: state.movieDetail,
   movieActorList: state.movieActorList
 });
@@ -24,12 +22,23 @@ const mapDispatchToProps = dispatch => ({
   onLoad: pageNmber => {
     getMoviesApi(pageNmber)
       .then(res => {
-        dispatch(getMovieListAction(res.results));
-      })
-      .catch(err => console.log(err));
-    getMoviesGenreApi()
-      .then(res => {
-        dispatch(getMovieGenreAction(res.genres));
+        const movieList = res.results;
+        getMoviesGenreApi()
+          .then(res => {
+            const genreList = res.genres;
+            movieList.map(movie => {
+              const genreNameList = movie.genre_ids.map(genre => {
+                for (let i = 0; i < genreList.length; i++) {
+                  if (genre === genreList[i].id) {
+                    return genreList[i].name;
+                  }
+                }
+              });
+              movie.genreNames = genreNameList;
+            });
+            dispatch(getMovieListAction(movieList));
+          })
+          .catch(err => console.log(err));
       })
       .catch(err => console.log(err));
   },

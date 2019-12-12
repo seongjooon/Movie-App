@@ -43,14 +43,12 @@
       }
       .movie-genre-list {
         padding: 0 1px;
-        .movie-genre-wrapper {
-          display: inline-block;
           .movie-genre {
+            display: inline-block;
             margin: 3px;
             padding: 2px 5px;
             border-radius: 4px;
             background: gray;
-          }
         }
       }
 

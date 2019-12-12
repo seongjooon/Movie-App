@@ -49,13 +49,13 @@ class Main extends Component {
         {
           pageNumber: pageNumber + 1
         },
-        onLoad(pageNumber)
+        onLoad(pageNumber + 1)
       );
     }
   };
 
   render() {
-    const { movieList, genreList } = this.props;
+    const { movieList } = this.props;
 
     return (
       <div className="Main">
@@ -89,17 +89,9 @@ class Main extends Component {
                 </div>
               </div>
               <div className="movie-genre-list">
-                {genreList.map((genre, index) => (
-                  <div className="movie-genre-wrapper" key={index}>
-                    {movie.genre_ids.map((movieGenre, idx) => (
-                      <>
-                        {genre.id === movieGenre && (
-                          <div className="movie-genre" key={idx}>
-                            {genre.name}
-                          </div>
-                        )}
-                      </>
-                    ))}
+                {movie.genreNames.map((genre, index) => (
+                  <div className="movie-genre" key={index}>
+                    {genre}
                   </div>
                 ))}
               </div>

@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 import {
   GET_MOVIES,
-  GET_MOVIES_GENRE,
   GET_MOVIE_DETAIL,
   GET_MOVIE_ACTOR
 } from '../constants/actionTypes';
@@ -17,15 +16,6 @@ export const getMoviesReducer = (state = initialState.movieList, action) => {
   switch (action.type) {
     case GET_MOVIES:
       return [...state, ...action.movieList];
-    default:
-      return state;
-  }
-};
-
-export const getMovieGenreReducer = (state = initialState.genreList, action) => {
-  switch (action.type) {
-    case GET_MOVIES_GENRE:
-      return action.genreList;
     default:
       return state;
   }
@@ -51,7 +41,6 @@ export const getMovieActorReducer = (state = initialState.movieActorList, action
 
 const movieapp = combineReducers({
   movieList: getMoviesReducer,
-  genreList: getMovieGenreReducer,
   movieDetail: getMovieDetailReducer,
   movieActorList: getMovieActorReducer
 });

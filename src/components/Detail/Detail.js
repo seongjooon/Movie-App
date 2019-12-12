@@ -16,7 +16,7 @@ class Detail extends Component {
   }
 
   render() {
-    const { movieDetail, genreList, movieActorList } = this.props;
+    const { movieDetail, movieActorList } = this.props;
 
     return (
       <div className="Detail">
@@ -48,26 +48,21 @@ class Detail extends Component {
               fullSymbol={<img src={Star} className="icon" alt="icon" />}
             />
             <div className="movie-genre-list">
-              {genreList.map((genre, index) => (
-                <div className="movie-genre-wrapper" key={index}>
-                  {movieDetail.genres.map((movieGenre, idx) => (
-                    <>
-                      {genre.id === movieGenre.id && (
-                        <div className="movie-genre" key={idx}>
-                          {genre.name}
-                        </div>
-                      )}
-                    </>
-                  ))}
-                </div>
-              ))}
+              {movieDetail.genres &&
+                movieDetail.genres.map((movieGenre, idx) => (
+                  <div className="movie-genre" key={idx}>
+                    {movieGenre.name}
+                  </div>
+                ))}
             </div>
             <div className="movie-detail-overview-title">
-              {movieDetail.overview && `Overview`}
+              {movieDetail.overview && 'Overview'}
             </div>
             <p className="movie-detail-overview">{movieDetail.overview}</p>
           </div>
-          <div className="cast-title"> Top Billed Cast</div>
+          <div className="cast-title">
+            {movieActorList[0] && 'Top Billed Cast'}
+          </div>
           <div className="actor-list-wrapper">
             <div className="cast-list">
               {movieActorList.map(actor => (

@@ -13,8 +13,37 @@ if (day.length < 2) {
   day = `0${day}`;
 }
 
-export const getMoviesApi = async pageNmber => {
-  return await axios
+// export const getMoviesApi = async pageNmber => {
+//   return  axios
+//     .get(
+//       `/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=release_date.desc&include_adult=false&include_video=false&page=${pageNmber}&release_date.lte=${year}-${month}-${day}`
+//     )
+//     .then(res => {
+//       let temp;
+//       const movieList = res.data.results;
+//       getMoviesGenreApi()
+//         .then(res => {
+//           const genreList = res.genres;
+//           temp = movieList.map(movie => {
+//             const genreNameList = genreList.map(genre => {
+//               for (let i = 0; i < movie.genre_ids.length; i++) {
+//                 if (genre.id === movie.genre_ids[i]) {
+//                   return genre.name;
+//                 }
+//               }
+//             });
+//             movie.genreNames = genreNameList;
+//           });
+//         })
+//         .catch(err => console.log(err));
+
+//       return temp;
+//     })
+//     .catch(err => console.log(err));
+// };
+
+export const getMoviesApi = pageNmber => {
+  return axios
     .get(
       `/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=release_date.desc&include_adult=false&include_video=false&page=${pageNmber}&release_date.lte=${year}-${month}-${day}`
     )
@@ -22,15 +51,21 @@ export const getMoviesApi = async pageNmber => {
     .catch(err => console.log(err));
 };
 
-export const getMoviesGenreApi = async () => {
-  return await axios
+// const getMoviesGenreApi = async () => {
+//   return await axios
+//     .get(MOVIE_GENRE_URL)
+//     .then(res => res.data)
+//     .catch(err => console.log(err));
+// };
+export const getMoviesGenreApi = () => {
+  return axios
     .get(MOVIE_GENRE_URL)
     .then(res => res.data)
     .catch(err => console.log(err));
 };
 
-export const getMovieDetailApi = async movie_id => {
-  return await axios
+export const getMovieDetailApi = movie_id => {
+  return axios
     .get(
       `/movie/${movie_id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
     )
@@ -38,8 +73,8 @@ export const getMovieDetailApi = async movie_id => {
     .catch(err => console.log(err));
 };
 
-export const getMovieActorApi = async movie_id => {
-  return await axios
+export const getMovieActorApi = movie_id => {
+  return axios
     .get(`/movie/${movie_id}/credits?api_key=${process.env.REACT_APP_API_KEY}`)
     .then(res => res.data.cast)
     .catch(err => console.log(err));

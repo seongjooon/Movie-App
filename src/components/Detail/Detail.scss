@@ -41,19 +41,18 @@ $ratingColor: gold;
       .movie-detail-rating {
         display: inline-block;
         img {
-          width: 30px;
+          width: 20px;
         }
       }
       .movie-genre-list {
         padding: 0 1px;
-        .movie-genre-wrapper {
+        .movie-genre {
           display: inline-block;
-          .movie-genre {
-            margin: 3px;
-            padding: 2px 5px;
-            border-radius: 4px;
-            background: gray;
-          }
+          margin: 5px;
+          padding: 3px 10px;
+          border-radius: 4px;
+          font-size: 1.2rem;
+          background: gray;
         }
       }
       .movie-detail-overview-title {

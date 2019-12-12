@@ -10,7 +10,6 @@ class App extends Component {
     const {
       onLoad,
       movieList,
-      genreList,
       getMovieDetail,
       movieDetail,
       movieActorList,
@@ -33,7 +32,6 @@ class App extends Component {
               <Main
                 onLoad={onLoad}
                 movieList={movieList}
-                genreList={genreList}
                 getNextPage={getNextPage}
               />
             )}
@@ -44,7 +42,6 @@ class App extends Component {
               <Detail
                 {...props}
                 getMovieDetail={getMovieDetail}
-                genreList={genreList}
                 movieDetail={movieDetail}
                 movieActorList={movieActorList}
               />

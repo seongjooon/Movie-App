@@ -1,6 +1,5 @@
 import {
   GET_MOVIES,
-  GET_MOVIES_GENRE,
   GET_MOVIE_DETAIL,
   GET_MOVIE_ACTOR
 } from '../constants/actionTypes';
@@ -8,11 +7,6 @@ import {
 export const getMovieListAction = movieList => ({
   type: GET_MOVIES,
   movieList
-});
-
-export const getMovieGenreAction = genreList => ({
-  type: GET_MOVIES_GENRE,
-  genreList
 });
 
 export const getMovieDetailAction = movieDetail => ({
