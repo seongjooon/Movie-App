@@ -53,7 +53,6 @@ class Main extends Component {
   render() {
     const { movieList, genreList } = this.props;
 
-    console.log('페이지 넘버: ', this.state.pageNumber);
     return (
       <div className="Main">
         {movieList.map((movie, index) => (

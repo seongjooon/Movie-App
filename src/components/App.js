@@ -14,7 +14,6 @@ class App extends Component {
       getMovieDetail,
       movieDetail,
       movieActorList,
-      pageNumber,
       getNextPage
     } = this.props;
 
@@ -35,7 +34,6 @@ class App extends Component {
                 onLoad={onLoad}
                 movieList={movieList}
                 genreList={genreList}
-                pageNumber={pageNumber}
                 getNextPage={getNextPage}
               />
             )}

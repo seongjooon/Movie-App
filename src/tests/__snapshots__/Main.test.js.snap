@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Main /> matches snapshot 1`] = `
+<div
+  className="Main"
+>
+  <Link
+    className="movie-element"
+    key="0"
+    to="/movie/undefined"
+  >
+    <img
+      alt="Life of vaco"
+      src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/asdfoo3.jpg"
+    />
+    <div
+      className="movie-description"
+    >
+      <div
+        className="movie-title"
+      >
+        Life of vaco
+      </div>
+      <div
+        className="movie-rating"
+      >
+        4
+      </div>
+      <div
+        className="movie-date"
+      >
+        1996
+      </div>
+      <div
+        className="movie-genre-list"
+      />
+      <p
+        className="movie-overview"
+      >
+        askdfja2qbnelvpaoisfkw
+      </p>
+    </div>
+  </Link>
+</div>
+`;
