@@ -27,7 +27,7 @@
 
 ```
 git clone https://github.com/MrKamake/Movie-App.git
-cd movie-app-client
+cd Movie-App
 yarn install
 yarn start
 ```
