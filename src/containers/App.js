@@ -27,14 +27,13 @@ const mapDispatchToProps = dispatch => ({
           .then(res => {
             const genreList = res.genres;
             movieList.forEach(movie => {
-              const genreNameList = movie.genre_ids.map(genre => {
+              movie.genreNames = movie.genre_ids.map(genre => {
                 for (let i = 0; i < genreList.length; i++) {
                   if (genre === genreList[i].id) {
                     return genreList[i].name;
                   }
                 }
               });
-              movie.genreNames = genreNameList;
             });
             dispatch(getMovieListAction(movieList));
           })

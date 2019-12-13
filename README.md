@@ -6,7 +6,6 @@
 
 - [Introduction](#Introduction)
 - [Installation](#Installation)
-- [Requirement](#Requirement)
 - [Features](#Features)
 - [Approach](#Approach)
 - [Learning points](#Learning-points)
@@ -30,15 +29,6 @@ git clone https://github.com/MrKamake/Movie-App.git
 cd movie-app-client
 yarn install
 yarn start
-```
-
-> ### Requirement
-
-- Create Api Key in client environment
-
-```
-.env
-REACT_APP_API_KEY=844dba0bfd8f3a4f3799f6130ef9e335
 ```
 
 > ### Features
